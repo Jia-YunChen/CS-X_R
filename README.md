@@ -6,6 +6,6 @@
 <br>
 <br>
 > 各周進度及作業：<br>
-| Week  | Date    | Link                                                           | Remark                                         |<br>
-|-------|---------|----------------------------------------------------------------|------------------------------------------------|<br>
-|   1   | 09/18   | https://github.com/Jia-YunChen/CS-X_R/tree/master/week_1       | Complete                                       |<br>
+| Week  | Date    | Link                                                           | Remark                                         |
+|----|:---------|:----|:---|
+|   1   | 09/18   | https://github.com/Jia-YunChen/CS-X_R/tree/master/week_1       | Complete                                       |
