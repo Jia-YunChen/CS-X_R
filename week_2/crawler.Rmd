@@ -8,7 +8,7 @@ output: html_document
 
 ## 目標網站
 
-某個討論小說歌詞的個人部落格http://jy29811354.pixnet.net/blog('http://jy29811354.pixnet.net/blog')
+某個討論小說歌詞的個人部落格http://jy29811354.pixnet.net/blog
 
 ---
 
