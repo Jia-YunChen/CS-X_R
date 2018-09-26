@@ -16,3 +16,4 @@
 | Week  | Date    | Link                                                            | Remark                                         |
 |-------|:--------|:----------------------------------------------------------------|:-----------------------------------------------|
 |   1   | 09/18   | https://github.com/Jia-YunChen/CS-X_R/tree/master/week_1        | Complete                                       |
+|   1   | 09/18   | https://github.com/Jia-YunChen/CS-X_R/tree/master/week_2        | Complete                                       |
