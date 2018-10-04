@@ -6,11 +6,15 @@ output: html_document
  # Week3作業-資料圖形化
 
  ## 匯入Library
- '''knitr::opts_chunk$set(echo = TRUE)
-library(ggplot2)'''
+ '''
+ knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+'''
 
  ## 叫出裡面原有的資料庫'Iris'
- '''iris'''
+ '''
+ iris
+ '''
  
  ## 先就著花萼寬度製一張長條圖
  '''ggplot(data = iris, aes(x = Sepal.Width),(y = 'Num')) +  geom_bar(fill = 'lightblue', colour = 'black')'''
