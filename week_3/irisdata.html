@@ -6,31 +6,35 @@ output: html_document
  # Week3作業-資料圖形化
 
  ## 匯入Library
- '''knitr::opts_chunk$set(echo = TRUE)
-library(ggplot2)'''
+ ```
+ knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+```
 
  ## 叫出裡面原有的資料庫'Iris'
- '''iris'''
+ ```
+ iris
+ ```
  
  ## 先就著花萼寬度製一張長條圖
- '''ggplot(data = iris, aes(x = Sepal.Width),(y = 'Num')) +  geom_bar(fill = 'lightblue', colour = 'black')'''
+ ```ggplot(data = iris, aes(x = Sepal.Width),(y = 'Num')) +  geom_bar(fill = 'lightblue', colour = 'black')```
  
  ## 再以所有資料之花萼寬度長度畫出點圖
- '''ggplot(data = iris, aes(Sepal.Width, Sepal.Length)) +  labs(x = 'Sepal Width', y = 'Sepal Length', title = 'Iris')+geom_jitter(width = 2, size = .25)'''
+ ```ggplot(data = iris, aes(Sepal.Width, Sepal.Length)) +  labs(x = 'Sepal Width', y = 'Sepal Length', title = 'Iris')+geom_jitter(width = 2, size = .25)```
  
  ## 以剛剛的圖再加上不同花種以區分
- '''kind <- iris[iris$Species %in% c("setosa", "versicolor", "virginica"), ]
+ ```kind <- iris[iris$Species %in% c("setosa", "versicolor", "virginica"), ]
 xx <- ggplot(iris, aes(Sepal.Width, Sepal.Length)) + labs(title = 'IrisData')
-xx + geom_jitter(aes(col = Species))'''
+xx + geom_jitter(aes(col = Species))
+```
 
  ## 最後畫出最終彙整版(再加上分布點之花瓣大略大小(長*寬))
- '''kind <- iris[iris$Species %in% c('setosa', 'versicolor', 'virginica'), ]
+ ```kind <- iris[iris$Species %in% c('setosa', 'versicolor', 'virginica'), ]
 xx <- ggplot(iris, aes(Sepal.Width, Sepal.Length)) + 
   labs(title = 'Iris')
-xx+geom_jitter(aes(col = Species, size = Petal.Width*Petal.Width))'''
+xx+geom_jitter(aes(col = Species, size = Petal.Width*Petal.Width))
+```
 
  ## 本周作業心得
   - 這次的作業，其中意義比上周好懂得多，大概是因為做出來的東西，是我比較看得懂的；比較難的地方大約是在還是沒辦法短時間內接觸及熟練這一快需要用到的眾多packages跟指令，光是看助教的範例用到的packages就讓我查好久了<br>
   - 然而最後我還是選了我相對熟悉，老師上課也有提及的鳶尾花資料庫為作業，然而在想做旁邊的圖例的時候，程式寫法依舊是請教同學後才學會的，除了開心我多知道一件知識以外，也真的很謝謝系上學過的同學願意被我一而再再而三地騷擾，也謝謝助教每周辛苦看我們作業！
-
- 
