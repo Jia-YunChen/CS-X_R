@@ -1,0 +1,95 @@
+---
+title: "lyrics"
+author: "JiaYun"
+date: "2018年10月11日"
+output: html_document
+---
+
+ # Week3作業-資料圖形化
+
+ ## 匯入Library
+ 
+```{r library}
+knitr::opts_chunk$set(echo = TRUE)
+library(xml2)
+library(rvest)
+library("NLP")
+library("tm")
+library("SnowballC")
+library("RColorBrewer")
+library("wordcloud")
+library(jiebaR)
+library(jiebaRD)
+```
+
+ ## 抓取網站
+```{r crawl}
+URL <- "https://www.juzimi.com/tags/26437"
+title <- read_html(URL) %>% html_nodes(".xlistju") %>% html_text()
+URL <- "https://www.juzimi.com/tags/26437?page=1"
+title.temp <- read_html(URL) %>% html_nodes(".xlistju") %>% html_text()
+title <- append(title, title.temp)
+URL <- "https://www.juzimi.com/tags/26437?page=2"
+title.temp <- read_html(URL) %>% html_nodes(".xlistju") %>% html_text()
+title <- append(title, title.temp)
+URL <- "https://www.juzimi.com/tags/26437?page=3"
+title.temp <- read_html(URL) %>% html_nodes(".xlistju") %>% html_text()
+title <- append(title, title.temp)
+URL <- "https://www.juzimi.com/tags/26437?page=4"
+title.temp <- read_html(URL) %>% html_nodes(".xlistju") %>% html_text()
+title <- append(title, title.temp)
+URL <- "https://www.juzimi.com/tags/26437?page=5"
+title.temp <- read_html(URL) %>% html_nodes(".xlistju") %>% html_text()
+title <- append(title, title.temp)
+docs <- Corpus(VectorSource(title))
+```
+
+
+ ## 清除雜訊及stopwords
+```{r clean}
+toSpace <- content_transformer(function (x , pattern ){
+  return (gsub(pattern,'',x))
+})
+
+mixseg = worker()
+jieba_tokenizer=function(d){
+  unlist(segment(d[[1]],mixseg))
+}
+docs <- tm_map(docs, toSpace, "的")
+docs <- tm_map(docs, toSpace, "你")
+docs <- tm_map(docs, toSpace, "我")
+docs <- tm_map(docs, toSpace, "他")
+docs <- tm_map(docs, toSpace, "还")
+docs <- tm_map(docs, toSpace, "有")
+docs <- tm_map(docs, toSpace, "不")
+docs <- tm_map(docs, toSpace, "是")
+docs <- tm_map(docs, toSpace, "谁")
+docs <- tm_map(docs, toSpace, "了")
+docs <- tm_map(docs, toSpace, "与")
+docs <- tm_map(docs, toSpace, "又")
+docs <- tm_map(docs, toSpace, "却")
+docs <- tm_map(docs, toSpace, "也好")
+docs <- tm_map(docs, toSpace, "在")
+docs <- tm_map(docs, toSpace, "之")
+docs <- tm_map(docs, toSpace, "都")
+docs <- tm_map(docs, toSpace, "因")
+docs <- tm_map(docs, toSpace, "为")
+```
+
+ ## 製作文字雲
+```{r wordcloud}
+seg = lapply(docs, jieba_tokenizer)
+
+freqFrame = as.data.frame(table(unlist(seg)))
+wordcloud(freqFrame$Var1,freqFrame$Freq,
+          scale=c(5,0.5),min.freq=1,max.words=50,
+          random.order=FALSE, random.color=TRUE, 
+          rot.per=0, colors=brewer.pal(8, "Dark2"),
+          ordered.colors=FALSE,use.r.layout=FALSE,
+          fixed.asp=TRUE)
+```
+
+
+ ## 本周心得
+  - 因為喜歡古風歌，也嘗試過想作詞，所以選擇了這樣的主題，希望可以分析古風歌詞中常出現的字眼，來觀察究竟怎麼樣的詞彙比較容易被認為是古風，也可以藉機觀察各曲的主題。<br>
+  - 但開始做之後發現這個要清除沒有意義的字實在非常況困難，但好歹也看出一些東西了，所以也就這樣結束這份作業
