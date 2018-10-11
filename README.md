@@ -18,3 +18,4 @@
 |   1   | 09/18   | https://github.com/Jia-YunChen/CS-X_R/tree/master/week_1        | Complete                                       |
 |   2   | 09/26   | https://github.com/Jia-YunChen/CS-X_R/tree/master/week_2        | Complete                                       |
 |   3   | 10/03   | https://github.com/Jia-YunChen/CS-X_R/tree/master/week_3        | Complete                                       |
+|   4   | 10/09   | https://github.com/Jia-YunChen/CS-X_R/tree/master/week_4        | Complete                                       |
