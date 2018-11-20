@@ -11,4 +11,4 @@
 <br>
 <br>
  > 在此貼上DEMO地址<br> 
-&nbsp;&nbsp;&nbsp;&nbsp;    https://github.com/Jia-YunChen/CS-X_R/edit/master/week_678/week678/shinyapps.io/b05611001<br>
+&nbsp;&nbsp;&nbsp;&nbsp;    https://github.com/Jia-YunChen/CS-X_R/edit/master/week_678/week678/rsconnect/shinyapps.io/b05611001<br>
